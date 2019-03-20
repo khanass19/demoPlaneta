@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+            integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+
+</head>
+
+
+<body>
+
+<div class="masthead segment">
+    <div class="ui page grid">
+        <div class="column">
+            <div class="introduction">
+                <div class="flex-container" style="z-index: 1; position: relative">
+                    <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+                        <form>
+                            <h2>Please Sign In</h2>
+                            <hr class="colorgraph">
+                            <div class="form-group">
+                                <input autocomplete="off" type="email" name="email" id="email"
+                                       class="form-control input-lg"
+                                       placeholder="Email Address">
+                            </div>
+                            <div class="form-group">
+                                <input autocomplete="off" type="password" name="password" id="password"
+                                       class="form-control input-lg"
+                                       placeholder="Password">
+                            </div>
+                            <hr class="colorgraph">
+                            <div class="row">
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    <button type="button" id="loginBtn" class="btn btn-lg btn-success btn-block"
+                                            value="Sign In">Login
+                                    </button>
+                                </div>
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    <button type="button" id="registerBtn" class="btn btn-lg btn-primary btn-block"
+                                            value="Sign">Register
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script type="text/javascript" th:src="@{/js/script.js}"></script>
+</body>
+</html>

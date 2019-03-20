@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" th:href="@{/css/home.css}">
+</head>
+<body>
+
+<header class="header" role="banner" style="display: flex; flex-direction: row; justify-content: space-around;">
+    <h1 style="font-weight: bold; color: orange; font-family: 'Noto Sans CJK TC Black';
+     display: flex; align-items: center">PLANETA_KINO welcomes, <span id="welcomeField"></span>
+    </h1>
+
+    <div class="container">
+        <nav>
+            <ul>
+                <li class="active"><a href="#">one</a></li>
+                <li><a href="#">two</a></li>
+                <li><a href="#">three</a></li>
+                <li><a href="#">four</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div id="flex-container">
+    <div class="form-group">
+        <div class="input-group">
+        <span class="input-group-addon">
+        <input type="text" value="" class="form-control" id="nameFilm" name="custom_name" placeholder="film name: ">
+        </span>
+            <span class="input-group-addon">
+        <input type="number" value="" class="form-control" name="custom_name" id="lengthFilm" placeholder="length:">
+        </span>
+            <span class="input-group-addon">
+        <button class="add btn btn-primary" type="button" id="saveBtn">Add</button>
+</span>
+        </div>
+    </div>
+</div>
+
+<section>
+    <h1>All films</h1>
+    <div class="tbl-header">
+        <table cellpadding="0" cellspacing="0" border="0">
+            <thead>
+            <tr>
+                <th>id</th>
+                <th>name</th>
+                <th>length in seconds</th>
+                <th>DELETE</th>
+                <th>UPDATE</th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+    <div class="tbl-content">
+        <table cellpadding="0" cellspacing="0" border="0">
+            <tbody id="listOfAllFilms">
+
+            </tbody>
+        </table>
+    </div>
+
+    <div class="wrapper">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-sm-12">
+                   <ul id="pagination-demo" class="pagination-sm"></ul>
+                </div>
+            </div>
+
+            <div id="page-content" class="page-content">Page 1</div>
+        </div>
+    </div>
+
+
+</section>
+<div>
+    Name:
+    <input type="text" id="t1">
+    DAte:
+    <input type="date" id="t2">
+    File:
+    <input type="file" id="t3">
+    <button onclick="addInfo(document.getElementById('t3'))"></button>
+
+
+</div>
+
+<div>
+    <img id="imageFromDb" style="width: 500px; height: 500px;">
+</div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <input type="text" id="updateValue1">
+                <input type="text" id="updateValue2">
+                <button id="doUpdate">Finish</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="//code.jquery.com/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+        integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+        crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+        integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+        crossorigin="anonymous"></script>
+<script th:src="@{/js/twbsPagination.js}"></script>
+<script th:src="@{/js/home.js}"></script>
+
+</body>
+</html>
