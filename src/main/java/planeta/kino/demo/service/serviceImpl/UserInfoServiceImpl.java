@@ -49,7 +49,6 @@ public class UserInfoServiceImpl implements UserInfoService {
             if(user.getUserInfo() != null) {
                 userInfo.setId(user.getUserInfo().getId());
             }
-
             BASE64Decoder base64Decoder = new BASE64Decoder();
             byte[] fileContent = base64Decoder
                     .decodeBuffer(userFullDTO

@@ -53,10 +53,10 @@ public class UserController {
     }
 
     @PostMapping("/public/login")
-    public String login(@RequestBody User user) throws Exception {
+    public String login(@RequestBody User user) throws IllegalArgumentException {
         User user1 = userService.getOne(modelMapper.map(user, UserSimpleDTO.class));
         if(user1 == null) {
-            throw new Exception("User with such creds doesn't exists");
+            throw new IllegalArgumentException();
         }
         return tokenTool.createToken(user1.getEmail(), user1.getRole().name());
     }

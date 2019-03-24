@@ -24,14 +24,12 @@ import java.util.concurrent.TimeUnit;
 @CrossOrigin
 public class FIlmController {
 
-    private static final Logger logger =
-            LogManager.getLogger(FIlmController.class);
-
+    private static final Logger LOGGER = LogManager.getLogger(FIlmController.class);
 
     @Autowired
     private FilmService filmService;
 
-    @PostMapping(value = "/film")
+    @PostMapping(value = "/film/save")
     public Film saveFilm(@RequestBody @Valid Film film) throws InterruptedException {
         return filmService.saveFilm(film);
     }
@@ -39,11 +37,6 @@ public class FIlmController {
     @GetMapping(value = "/films")
     public List<Film> getAllFilms() {
         List<Film> films = filmService.getAll();
-        try {
-
-        } catch (Exception e) {
-            logger.error(e.getMessage());
-        }
         return films;
     }
 
@@ -63,7 +56,6 @@ public class FIlmController {
 
     @PatchMapping("/film")
     @PreAuthorize("hasAnyAuthority('USER')")
-
     public Film updateFilm(@RequestBody Film film) {
         return filmService.updateFilm(film);
     }

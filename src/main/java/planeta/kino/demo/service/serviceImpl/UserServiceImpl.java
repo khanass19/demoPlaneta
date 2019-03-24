@@ -15,11 +15,11 @@ import planeta.kino.demo.service.UserService;
 import planeta.kino.demo.utils.ObjectMapperUtils;
 
 import javax.transaction.Transactional;
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
 @Service
-@Transactional
 public class UserServiceImpl implements UserService {
 
     private static final Logger LOGGER = LogManager
@@ -50,7 +50,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User getOne(UserSimpleDTO userSimpleDTO) {
+    public User getOne(UserSimpleDTO userSimpleDTO) throws IllegalArgumentException {
         List<User> usersWithSuchMail = userRepository.
                 findByEmail(userSimpleDTO.getEmail());
         for(User u : usersWithSuchMail) {
@@ -58,7 +58,23 @@ public class UserServiceImpl implements UserService {
                 return u;
             }
         }
-        throw new IllegalArgumentException();
+        return null;
+    }
+
+    @Override
+    public double calculateMonthlyPayment(
+            int loanAmount, int termInYears, double interestRate) throws IllegalArgumentException {
+
+        if(loanAmount <= 0 || termInYears <= 0 || interestRate <= 0) {
+            throw new IllegalArgumentException();
+        }
+        interestRate /= 100.0;
+        double monthlyRate = interestRate / 12.0;
+        int termInMonths = termInYears * 12;
+        double monthlyPayment =
+                (loanAmount*monthlyRate) /
+                        (1-Math.pow(1+monthlyRate, -termInMonths));
+        return Math.round(monthlyPayment);
     }
 
 }

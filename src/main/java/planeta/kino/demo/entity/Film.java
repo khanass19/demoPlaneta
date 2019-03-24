@@ -83,11 +83,34 @@ public class Film {
         this.days = days;
     }
 
-    public Film(String name, Integer lengthInSeconds, List<Advertisement> list, List<Day> days, List<User> users) {
+    public Film(String name, Integer lengthInSeconds) {
         this.name = name;
         this.lengthInSeconds = lengthInSeconds;
-        this.list = list;
-        this.days = days;
-        this.users = users;
     }
+
+    public static FilmEntityBuilder builder() {
+        return new FilmEntityBuilder();
+    }
+
+    public static class FilmEntityBuilder {
+
+        private String name;
+        private Integer lengthInSeconds;
+
+        public FilmEntityBuilder setName(final String name) {
+            this.name = name;
+            return this;
+        }
+
+        public FilmEntityBuilder setLengthInSeconds(final Integer lengthInSeconds) {
+            this.lengthInSeconds = lengthInSeconds;
+            return this;
+        }
+
+        public Film build() {
+            return new Film(name, lengthInSeconds);
+        }
+
+    }
+
 }
